@@ -1,14 +1,15 @@
 import { Controller , Get} from "@nestjs/common";
 import { TaskService } from "../service/task.service";
+import { TasksInterface } from "../model/task.model";
 
 @Controller('task')
 export class TaskController{
 
-  private  task = []
+
   constructor(private taskService: TaskService) {}
 
   @Get()
-  public async getTask(): Promise <string>{
+  public async getTask(): Promise <TasksInterface[]>{
     return this.taskService.getTask()
   }
 }
