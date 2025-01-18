@@ -12,7 +12,7 @@ export class TaskService {
   }
 
   public createTask( createTaskDTO: createTaskDTO ){
-    const {title, description} = createTaskDTO
+    const {title, description} = createTaskDTO;
     const newTask: TasksInterface = {
       id: uuid(),
       title: title,
@@ -21,5 +21,10 @@ export class TaskService {
     };
     this.task.push(newTask);
     return newTask;
+  }
+
+  public getTaskById(id: string){
+    return this.task.find((task : TasksInterface)=> id === task.id)
+
   }
 }
