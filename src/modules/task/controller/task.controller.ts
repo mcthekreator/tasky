@@ -12,12 +12,17 @@ export class TaskController {
     return this.taskService.getTask();
   }
   @Post( 'create-task')
-  public async createTask(@Body() createTaskDTO: createTaskDTO){
+  public async createTask(@Body() createTaskDTO: createTaskDTO): Promise < TasksInterface[]>{
     return this.taskService.createTask(createTaskDTO)
   }
   @Post('get-task/:id')
-  public  async getTaskById(@Param('id') id: string){
+  public  async getTaskById(@Param('id') id: string) : Promise <TasksInterface[]>{
     return this.taskService.getTaskById(id)
+  }
+
+  @Post('search-task')
+  public  async searchTask(@Param('title')title: string) :Promise<TasksInterface[]>{
+    return this.taskService.searchTask(title)
   }
 
 }
