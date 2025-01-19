@@ -15,10 +15,11 @@ export class TaskController {
   public async createTask(@Body() createTaskDTO: createTaskDTO){
     return this.taskService.createTask(createTaskDTO)
   }
-  @Post(':id')
-  public  async getTaskById(@Param('id') id){
+  @Post('get-task/:id')
+  public  async getTaskById(@Param('id') id: string){
     return this.taskService.getTaskById(id)
   }
+
 }
 
 

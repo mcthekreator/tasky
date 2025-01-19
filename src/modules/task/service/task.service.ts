@@ -23,8 +23,11 @@ export class TaskService {
     return newTask;
   }
 
-  public getTaskById(id: string){
+  public getTaskById(id: string): TasksInterface{
     return this.task.find((task : TasksInterface)=> id === task.id)
-
   }
-}
+
+  public searchTask(titleKeyword: string): TasksInterface[]{
+    return this.task.filter((task : TasksInterface) => titleKeyword === task.title )
+  }
+  }
