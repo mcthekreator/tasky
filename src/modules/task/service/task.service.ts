@@ -20,14 +20,20 @@ export class TaskService {
       status: TaskStatus.OPEN,
     };
     this.task.push(newTask);
-    return newTask;
+    return newTask
   }
 
   public getTaskById(id: string): TasksInterface{
-    return this.task.find((task : TasksInterface)=> id === task.id)
+    return this.task.find((task: TasksInterface)=> id === task.id)
   }
 
   public searchTask(titleKeyword: string): TasksInterface[]{
-    return this.task.filter((task : TasksInterface) => titleKeyword === task.title )
+    return this.task.filter((task: TasksInterface) => titleKeyword === task.title )
+  }
+
+  public updateStatus(titleKeyword: string, id: string): TasksInterface[]{
+    const updatedTask: TasksInterface = this.task.find((task)=> id === task.id)
+    return updatedTask.title = titleKeyword
+
   }
   }
