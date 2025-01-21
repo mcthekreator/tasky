@@ -31,9 +31,9 @@ export class TaskService {
     return this.task.filter((task: TasksInterface) => titleKeyword === task.title )
   }
 
-  public updateStatus(titleKeyword: string, id: string): TasksInterface[]{
+  public updateStatus(titleKeyword: string, id: string): TasksInterface{
     const updatedTask: TasksInterface = this.task.find((task)=> id === task.id)
-    return updatedTask.title = titleKeyword
-
+    updatedTask.title = titleKeyword;
+    return updatedTask
   }
   }

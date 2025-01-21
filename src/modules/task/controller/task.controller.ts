@@ -23,9 +23,9 @@ export class TaskController {
   public  async searchTask(@Param('title')title: string) :Promise<TasksInterface[]>{
     return this.taskService.searchTask(title)
   }
-  @Patch('change-task-status')
-  public async updateTaskStatus(@Body() @Param('id') createTaskDTO: createTaskDTO){
-  return this.taskService.updateStatus()
+  @Patch('change-task-status/:id')
+  public async updateTaskStatus(@Body('title') title:string,  @Param('id') id: string){
+  return this.taskService.updateStatus(title, id)
   }
 
 }
